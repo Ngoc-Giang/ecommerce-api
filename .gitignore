@@ -1,0 +1,7 @@
+node_modules/
+.env
+.cursor/
+.claude/
+.devin/
+.agents/
+npm-debug.log
