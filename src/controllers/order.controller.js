@@ -59,7 +59,15 @@ const createOrder = async (req, res) => {
         });
       }
 
-      return newOrder;
+      await tx.shipment.create({ data: { oid: newOrder.oid, status: "Pending" } });
+
+      return tx.order.findUnique({
+        where: { oid: newOrder.oid },
+        include: {
+          orderDetails: { include: { product: true } },
+          shipments: true,
+        },
+      });
     });
 
     return res.status(201).json({
