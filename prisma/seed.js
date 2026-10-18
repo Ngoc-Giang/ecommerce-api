@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 const prisma = require("../src/config/prisma");
 
 async function main() {
-  // roleid = 1 PHẢI là CUSTOMER vì register đang gán cứng roleid: 1
+  // roleid = 1 PHẢI là role mặc định (normal) vì register đang gán cứng roleid: 1
   const roles = [
-    { roleid: 1, rolename: "CUSTOMER" },
+    { roleid: 1, rolename: "normal" },
     { roleid: 2, rolename: "ADMIN" },
   ];
   for (const r of roles) {
@@ -17,7 +17,8 @@ async function main() {
   }
 
   const memberships = [
-    { mid: 1, mname: "Bronze", score: 0 },
+    // mid = 1 PHẢI là Bronze/10 vì register đang gán cứng mid: 1
+    { mid: 1, mname: "Bronze", score: 10 },
     { mid: 2, mname: "Silver", score: 100 },
     { mid: 3, mname: "Gold", score: 500 },
   ];

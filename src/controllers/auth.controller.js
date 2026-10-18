@@ -34,6 +34,7 @@ const register = async (req, res) => {
         roleid: 1,
         mid: 1,
       },
+      include: { role: true, membership: true },
     });
 
     res.status(201).json({
@@ -45,6 +46,9 @@ const register = async (req, res) => {
         fullname: user.fullname,
         roleid: user.roleid,
         mid: user.mid,
+        role: user.role.rolename,
+        membership: user.membership.mname,
+        score: user.membership.score,
       },
     });
   } catch (error) {

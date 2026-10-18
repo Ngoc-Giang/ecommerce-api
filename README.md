@@ -35,7 +35,7 @@ npm run dev
 
 ## Xác thực và phân quyền
 Đăng nhập nhận JWT, gửi kèm header `Authorization: Bearer <token>`.
-Role: `CUSTOMER` (mặc định khi đăng ký), `ADMIN` (tạo sẵn bằng seed).
+Role: `normal` (mặc định khi đăng ký, membership Bronze với score 10), `ADMIN` (tạo sẵn bằng seed).
 
 ## Endpoint
 | Method | Đường dẫn | Quyền |
